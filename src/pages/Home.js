@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled, { keyframes } from 'styled-components';
-import backgroundImage from '../assets/images/home_bg.jpg';
 import Lottie from 'react-lottie';
 import devAnimation from '../assets/json/dev_animation.json'
 import hiDevAnimation from '../assets/json/hello_dev.json'
@@ -41,6 +40,19 @@ const Home = () => {
   }
 
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScreenWidth(window.innerWidth); 
+    };
+
+    window.addEventListener('resize', handleScroll);
+
+    return () => {
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
 
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -58,11 +70,11 @@ const Home = () => {
     setTransform("rotateX(0deg) rotateY(0deg)"); // Reset when the cursor leaves
   };
   const handleLink = (type) => {
-    if(type==='github') {
+    if (type === 'github') {
       window.open(constants.social_links.github)
-    } else if(type==='linkedin') {
+    } else if (type === 'linkedin') {
       window.open(constants.social_links.linkedin)
-    } else if(type==='instagram') {
+    } else if (type === 'instagram') {
       window.open(constants.social_links.instagram)
     }
   }
@@ -72,10 +84,10 @@ const Home = () => {
       <Lottie options={showerLottieOptions}
         height={styles.sizes.height}
         width={styles.sizes.width}
-        style={{ position: 'absolute', opacity: .1 }}
+        style={{ position: 'absolute', width: '100%', opacity: .1 }}
       />
       <TopContent id='top-section'>
-        <Row>
+        <Row className='top-sec-row'>
           <LeftCol>
             <SameLine className='top-content-col'>
               <WelcomeMessage>Hello!</WelcomeMessage>
@@ -86,10 +98,11 @@ const Home = () => {
                 />
               </div>
             </SameLine>
-            <SameLine className='top-content-col'>
+            {/* <SameLine className='top-content-col'>
               <SubText>I'M</SubText>
               <Name>Ayush Raikwar</Name>
-            </SameLine>
+            </SameLine> */}
+            <SubText>I'M <Name>Ayush Raikwar</Name></SubText>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <TypeAnimation
                 sequence={[
@@ -109,17 +122,17 @@ const Home = () => {
               />
             </div>
           </LeftCol>
-          <RightCol>
+          <RightCol className='top-right-col'>
             <Lottie options={devLottieOptions}
-              height={window.screen.width * .3}
-              width={window.screen.width * .3}
+              height={screenWidth>900?screenWidth * .35:screenWidth*.7}
+              width={screenWidth>900?screenWidth * .35:screenWidth*.7}
             />
           </RightCol>
         </Row>
       </TopContent>
       <Divider />
       <BottomContent id='bottom-section'>
-        <Row>
+        <Row className='bottom-sec-row'>
           <LeftCol>
             <SameLine>
               <Heading>Let me</Heading>
@@ -149,24 +162,24 @@ const Home = () => {
           </RightCol>
         </Row>
 
-        <Divider/>
+        <Divider />
 
         <Heading className='center mg-y-5'>FIND ME HERE</Heading>
 
         <Socials>
-          <IconContainer onClick={()=>handleLink('github')}>
+          <IconContainer onClick={() => handleLink('github')}>
             <FaGithub
               fill='#163440'
             />
           </IconContainer>
 
-          <IconContainer onClick={()=>handleLink('linkedin')}>
+          <IconContainer onClick={() => handleLink('linkedin')}>
             <FaLinkedin
               fill='#163440'
             />
           </IconContainer>
 
-          <IconContainer onClick={()=>handleLink('instagram')}>
+          <IconContainer onClick={() => handleLink('instagram')}>
             <RiInstagramFill
               fill='#163440'
             />
@@ -190,7 +203,7 @@ const fadeIn = keyframes`
 const Container = styled.div`
   /* height: 100vh; */
   color: ${styles.colors.white};
-  background-image: url(${backgroundImage});  
+  background-image: url(${constants.images.bg_image});  
   background-size: cover;  
   background-position: center;  
   background-repeat: repeat;
@@ -199,9 +212,20 @@ const TopContent = styled.section`
   width: 100%;
   padding-top: 12%;
   /* height: 70vh; */
+
+  @media (max-width: 1300px) {
+    .top-sec-row {
+      flex-direction:column;
+    }
+  }
+
 `
 const BottomContent = styled.section`
-  
+  @media (max-width: 1100px) {
+    .bottom-sec-row {
+      flex-direction:column;
+    }
+  }
 `
 const Socials = styled.div`
   display: flex;
@@ -237,7 +261,7 @@ const SubText = styled.p`
   animation-delay: 2s;
   text-align: center;
 `;
-const Name = styled.p`
+const Name = styled.span`
   font-size: 2.2rem;
   color:${styles.colors.theme_default};
   text-transform: uppercase; 
@@ -282,6 +306,16 @@ const Row = styled.div`
   }
   .mg-y-5 {
     margin: 5% auto;
+  }
+
+  @media (max-width:680px) {
+    width: 95%;
+  }
+
+  @media (max-width: 1000px) {
+    .top-right-col {
+      margin: 4% auto;
+    }
   }
 
 `;

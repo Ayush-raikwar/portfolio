@@ -5,7 +5,7 @@ export const styles = {
         white:'#fff'
     },
     sizes: {
-        width:window.screen.width,
-        height:window.screen.height
+        width:window.innerWidth,
+        height:window.innerHeight
     }
 }

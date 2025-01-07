@@ -1,7 +1,7 @@
 // src/components/Navbar.js
 
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { IoIosHome } from "react-icons/io";
 import { MdOutlinePermDeviceInformation } from "react-icons/md";
@@ -47,12 +47,23 @@ const NavLink = styled(Link)`
     margin-right: 0.35rem;
   }
 
-  &::after {
+  /* &::after {
     content: '';
     position: absolute;
     bottom: -8px; 
     left: 0;
     width: 0;
+    height: 4px; 
+    background-color: ${styles.colors.theme_default}; 
+    transition: width 0.5s ease;
+  } */
+
+    &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; 
+    left: 0;
+    width: ${({ isActive }) => (isActive ? '100%' : '0')};
     height: 4px; 
     background-color: ${styles.colors.theme_default}; 
     transition: width 0.5s ease;
@@ -70,6 +81,7 @@ const NavLink = styled(Link)`
 export const Navbar = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,11 +97,11 @@ export const Navbar = () => {
 
   return(
     <NavbarContainer isScrolled={isScrolled}>
-      <NavLink to="/"><IoIosHome />Home</NavLink>
-      <NavLink to="/about"><MdOutlinePermDeviceInformation />About</NavLink>
-      <NavLink to="/projects"><GoProjectRoadmap />Projects</NavLink>
+      <NavLink to="/" isActive={location.pathname === "/"}><IoIosHome />Home</NavLink>
+      <NavLink to="/about" isActive={location.pathname === "/about"}><MdOutlinePermDeviceInformation />About</NavLink>
+      <NavLink to="/projects" isActive={location.pathname === "/projects"}><GoProjectRoadmap />Projects</NavLink>
       <NavLink to="/resume"><FcDocument/>Resume</NavLink>
-      <NavLink to="/contact"><MdContactPage/>Contact</NavLink>
+      <NavLink to="/contact" isActive={location.pathname === "/contact"}><MdContactPage/>Contact</NavLink>
     </NavbarContainer>
   );
 } 
