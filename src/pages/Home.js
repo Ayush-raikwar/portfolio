@@ -284,6 +284,9 @@ const Highlight = styled.span`
 const DataPoint = styled.p`
   font-family: 'Lato';
   font-size: 1.25rem;
+  @media (max-width: 800px) {
+    font-size: 1rem;
+  }
 `
 
 const Row = styled.div`
@@ -307,7 +310,7 @@ const Row = styled.div`
   }
 
   @media (max-width:680px) {
-    width: 95%;
+    width: 90%;
   }
 
   @media (max-width: 1000px) {
