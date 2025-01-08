@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react'
 import styled, { keyframes } from 'styled-components';
 import Lottie from 'react-lottie';
 import { TypeAnimation } from 'react-type-animation';
+import { styles } from '../utils/commonStyles';
 import devAnimation from '../assets/json/dev_animation.json'
 import hiDevAnimation from '../assets/json/hello_dev.json'
 import showerAnimation from '../assets/json/shower.json'
 import { ReactComponent as ProfileIcon } from '../assets/icons/programmer.svg'
 import { FaCode } from "react-icons/fa";
-import { styles } from '../utils/commonStyles';
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { constants } from '../utils/constants';
+import { Footer } from '../components/Footer';
 
 const Home = () => {
   const devLottieOptions = {
@@ -138,7 +139,7 @@ const Home = () => {
               <FaCode size={20} /><DataPoint>I fell in love with programming since 2020 & brushing up my skills since then!<br /></DataPoint>
             </SameLine>
             <SameLine className='mob-center'>
-              <FaCode size={20} /><DataPoint>I'm fluent with classics like <Highlight>JAVASCRIPT</Highlight>, with good grip in <Highlight>React & React Native</Highlight>.<br /></DataPoint>
+              <FaCode size={20} /><DataPoint>I'm fluent with classics like <Highlight>JAVASCRIPT</Highlight>, with hands on experience in <Highlight>React & React Native</Highlight>.<br /></DataPoint>
             </SameLine>
             <SameLine className='mob-center'>
               <FaCode size={20} /><DataPoint>Developed multiple <Highlight>cross-platform</Highlight> Mobile apps on React Native for both Android & iOS.</DataPoint>
@@ -182,6 +183,7 @@ const Home = () => {
         </Socials>
 
       </BottomContent>
+      <Footer/>
     </Container>
   )
 }

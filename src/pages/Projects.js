@@ -16,7 +16,7 @@ export default function Projects() {
 const Container = styled.div`
     color: ${styles.colors.white};
     background-image: url(${constants.images.bg_image});  
-    background-size: contain;  
+    background-size: cover;  
     background-position: center;  
     background-repeat: repeat;
     height: 100vh;
