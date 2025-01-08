@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styled, { keyframes } from 'styled-components';
 import Lottie from 'react-lottie';
+import { TypeAnimation } from 'react-type-animation';
 import devAnimation from '../assets/json/dev_animation.json'
 import hiDevAnimation from '../assets/json/hello_dev.json'
 import showerAnimation from '../assets/json/shower.json'
 import { ReactComponent as ProfileIcon } from '../assets/icons/programmer.svg'
 import { FaCode } from "react-icons/fa";
 import { styles } from '../utils/commonStyles';
-import { TypeAnimation } from 'react-type-animation';
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
@@ -98,7 +98,7 @@ const Home = () => {
               </div>
             </SameLine>
             <SubText>I'M <Name>Ayush Raikwar</Name></SubText>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom:'2rem' }}>
               <TypeAnimation
                 sequence={[
                   'Software developer',
