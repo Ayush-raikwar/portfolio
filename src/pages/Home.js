@@ -56,18 +56,17 @@ const Home = () => {
 
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - left; // Cursor X relative to the element
-    const y = e.clientY - top;  // Cursor Y relative to the element
+    const x = e.clientX - left; 
+    const y = e.clientY - top;  
 
-    // Increase intensity by using larger multipliers
-    const rotateX = ((y / height) - 0.5) * 60; // Map Y to -30deg to 30deg
-    const rotateY = ((x / width) - 0.5) * -60; // Map X to -30deg to 30deg
+    const rotateX = ((y / height) - 0.5) * 60; 
+    const rotateY = ((x / width) - 0.5) * -60; 
 
     setTransform(`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`);
   };
 
   const handleMouseLeave = () => {
-    setTransform("rotateX(0deg) rotateY(0deg)"); // Reset when the cursor leaves
+    setTransform("rotateX(0deg) rotateY(0deg)"); 
   };
   const handleLink = (type) => {
     if (type === 'github') {
@@ -98,10 +97,6 @@ const Home = () => {
                 />
               </div>
             </SameLine>
-            {/* <SameLine className='top-content-col'>
-              <SubText>I'M</SubText>
-              <Name>Ayush Raikwar</Name>
-            </SameLine> */}
             <SubText>I'M <Name>Ayush Raikwar</Name></SubText>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <TypeAnimation
@@ -134,24 +129,24 @@ const Home = () => {
       <BottomContent id='bottom-section'>
         <Row className='bottom-sec-row'>
           <LeftCol>
-            <SameLine>
+            <SameLine className='bottom-left-col-heading'>
               <Heading>Let me</Heading>
               <p className='highlight'>Introduce</p>
-              <Heading>Myself</Heading>
+              <Heading>myself</Heading>
             </SameLine>
-            <SameLine>
+            <SameLine className='mob-center'>
               <FaCode size={20} /><DataPoint>I fell in love with programming since 2020 & brushing up my skills since then!<br /></DataPoint>
             </SameLine>
-            <SameLine>
+            <SameLine className='mob-center'>
               <FaCode size={20} /><DataPoint>I'm fluent with classics like <Highlight>JAVASCRIPT</Highlight>, with good grip in <Highlight>React & React Native</Highlight>.<br /></DataPoint>
             </SameLine>
-            <SameLine>
+            <SameLine className='mob-center'>
               <FaCode size={20} /><DataPoint>Developed multiple <Highlight>cross-platform</Highlight> Mobile apps on React Native for both Android & iOS.</DataPoint>
             </SameLine>
-            <SameLine>
+            <SameLine className='mob-center'>
               <FaCode size={20} /><DataPoint>Worked with <Highlight>Firebase tools</Highlight>, <Highlight>Google ML kit</Highlight>, <Highlight>Native Bridging</Highlight>, etc. <br /></DataPoint>
             </SameLine>
-            <SameLine>
+            <SameLine className='mob-center'>
               <FaCode size={20} /><DataPoint>Expertise in <Highlight>Pixel perfect</Highlight> App development on React Native.<br /></DataPoint>
             </SameLine>
           </LeftCol>
@@ -201,7 +196,6 @@ const fadeIn = keyframes`
 `;
 
 const Container = styled.div`
-  /* height: 100vh; */
   color: ${styles.colors.white};
   background-image: url(${constants.images.bg_image});  
   background-size: cover;  
@@ -211,7 +205,6 @@ const Container = styled.div`
 const TopContent = styled.section`
   width: 100%;
   padding-top: 12%;
-  /* height: 70vh; */
 
   @media (max-width: 1300px) {
     .top-sec-row {
@@ -224,6 +217,9 @@ const BottomContent = styled.section`
   @media (max-width: 1100px) {
     .bottom-sec-row {
       flex-direction:column;
+    }
+    .bottom-left-col-heading {
+      justify-content: center;
     }
   }
 `
@@ -272,13 +268,11 @@ const Name = styled.span`
 const Heading = styled.p`
  text-align: center;
  font-size: 2rem;
- text-transform: uppercase;
 `
 const Highlight = styled.span`
   color: ${styles.colors.theme_default};
   text-align: center;
   font-style: italic;
-  /* text-transform: uppercase; */
 `
 const DataPoint = styled.p`
   font-family: 'Lato';
@@ -299,9 +293,6 @@ const Row = styled.div`
     }
   }
   .center {
-    /* justify-content: center;
-    text-align: center;
-    align-items: center; */
     margin: auto;
   }
   .mg-y-5 {
@@ -323,7 +314,6 @@ const Row = styled.div`
 const SameLine = styled.div`
   display:flex;
   align-items:center;
-  /* justify-content: center; */
   gap: 0.5rem;
 
   .highlight {
@@ -347,6 +337,12 @@ const LeftCol = styled.div`
   .top-content-col {
     justify-content: center;
   }
+  @media (max-width: 780px) {
+    .mob-center {
+      text-align: center;
+      align-items: baseline;
+    }
+  }
 `
 const RightCol = styled.div`
   display: flex;
@@ -365,7 +361,10 @@ const StyledProfileIcon = styled(ProfileIcon)`
   width: 200px; 
   height: 200px;
   transform-style: preserve-3d; 
-  /* transition: transform 0.1s ease-out;  */
+  @media (max-width:780px) {
+    width: 25vw;
+    height: 25vw;
+  }
 `;
 
 
