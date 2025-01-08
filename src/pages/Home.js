@@ -220,6 +220,11 @@ const BottomContent = styled.section`
     }
     .bottom-left-col-heading {
       justify-content: center;
+      flex-direction: column;
+      margin-bottom: 2rem;
+      p{
+        margin: 0;
+      }
     }
   }
 `
@@ -339,8 +344,12 @@ const LeftCol = styled.div`
   }
   @media (max-width: 780px) {
     .mob-center {
-      text-align: center;
+      text-align: justify;
       align-items: baseline;
+      flex-direction: column;
+      svg {
+        align-self: center;
+      }
     }
   }
 `
