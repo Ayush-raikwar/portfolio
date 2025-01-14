@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Document, Page, pdfjs } from 'react-pdf';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { styles } from '../utils/commonStyles';
 import { constants } from '../utils/constants';
 import { Footer } from '../components/Footer';
+import pdfFile from '../assets/docs/cv_ayush.pdf'
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.mjs',
@@ -16,7 +17,7 @@ export const Resume = () => {
         <Container>
             <Section>
                 <PdfContainer
-                    file={require("../assets/docs/cv_ayush.pdf")}>
+                    file={pdfFile}>
                     <Page
                         renderTextLayer={false}
                         renderAnnotationLayer={false}
