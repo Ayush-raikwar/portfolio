@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { styles } from '../utils/commonStyles';
 import { constants } from '../utils/constants';
 import { Footer } from '../components/Footer';
-import pdfFile from '/cv_ayush.pdf'
+import pdfFile from '../assets/docs/cv_ayush.pdf'
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.mjs',
