@@ -1,8 +1,8 @@
 // src/components/Navbar.js
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { IoIosHome } from "react-icons/io";
 import { MdOutlinePermDeviceInformation } from "react-icons/md";
 import { GoProjectRoadmap } from "react-icons/go";
@@ -63,7 +63,7 @@ export const Navbar = () => {
       </HamburgerMenu>
     </>
   )
-  const renderTabs = useCallback(()=>(
+  const renderTabs = ()=>(
     <NavbarContainer isScrolled={isScrolled}>
       <NavLink to="/" isActive={location.pathname === "/"}><IoIosHome />Home</NavLink>
       <NavLink to="/about" isActive={location.pathname === "/about"}><MdOutlinePermDeviceInformation />About</NavLink>
@@ -71,7 +71,7 @@ export const Navbar = () => {
       <NavLink to="/resume"><FcDocument/>Resume</NavLink>
       <NavLink to="/contact" isActive={location.pathname === "/contact"}><MdContactPage/>Contact</NavLink>
     </NavbarContainer>
-  ),[])
+  )
 
   return(
     <Container>
