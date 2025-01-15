@@ -27,7 +27,7 @@ export const Resume = () => {
         <Container>
             <Section>
                 <ResumeImg
-                    src='https://previews.dropbox.com/p/thumb/AChyupdugkydCqXjNuSoxM2EPoU2wwNdT8rgiPWihnjZdDoYVgTEtRSKypqs3R7CyzT3uEi99rgsqyNfmEFoAVpmN91mtPfWfcQ__ujsU1gnWcAWHGhIhD5vVls6nLlTQLElRQ2nYFW-3I2ZRBHafhP2uqndLGevCqmO2DyNULDx0mGw6KJAnMmDQS0h3-jMtiEB6sN0ObGtkQMS1FJKuizemQuCJ0UjHA8xFMGKZMvaVOjPF3MLT2dtjXRXRl7-W-V86QUUjENcE3g9doGVQRNJg25aGoe1gswLKsIE79vrHWYR8rIM4oJ9aBfyBdSsnzuD-giWMfuEGsnpnPncpYmq/p.jpeg?is_prewarmed=true'
+                    src='https://github.com/Ayush-raikwar/resume/blob/main/CV_Ayush%20Raikwar_React%20Native%20Developer.pdf%20(2)%20(1)_page-0001%20(1).jpg?raw=true'
                     alt='resume-img'
                 />
                 <button onClick={downloadPDF}>Download</button>
