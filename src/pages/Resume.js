@@ -68,4 +68,7 @@ const Section = styled.section`
 
 const ResumeImg = styled.img`
     width: 500px;
+    @media (max-width: 540px) {
+        width: 95%;
+    }
 `
