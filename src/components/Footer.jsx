@@ -4,6 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
+import { handleLink } from '../utils/helpers';
 
 
 export const Footer = () => {
@@ -16,10 +17,10 @@ export const Footer = () => {
                 <Copyrights>Copyright © 2025</Copyrights>
             </Row>
             <RowCenterApart>
-                <FaGithub size={20} />
-                <FaLinkedin size={20} />
-                <RiInstagramFill size={20} />
-                <MdEmail size={20} />
+                <FaGithub size={20} className='icon' onClick={()=>handleLink('github')} />
+                <FaLinkedin size={20} className='icon' onClick={()=>handleLink('linkedin')} />
+                <RiInstagramFill size={20} className='icon' onClick={()=>handleLink('ig')} />
+                <MdEmail size={20} className='icon' onClick={()=>handleLink('email')} />
             </RowCenterApart>
         </FooterContainer>
     )
@@ -51,6 +52,16 @@ const Row = styled.div`
 const RowCenterApart = styled.div`
     display: flex;
     gap:2rem;
+
+    .icon {
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        &:hover {
+            box-shadow: 0 0 10px 2px white;
+            transform: scale(1.15);
+            border-radius: 25%;
+            cursor: pointer;
+        }
+    }
 `
 const Copyrights = styled.p`
     font-size: .75rem;

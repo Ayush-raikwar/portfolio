@@ -13,6 +13,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { constants } from '../utils/constants';
 import { Footer } from '../components/Footer';
+import { handleLink } from '../utils/helpers';
 
 const Home = () => {
   const devLottieOptions = {
@@ -69,15 +70,15 @@ const Home = () => {
   const handleMouseLeave = () => {
     setTransform("rotateX(0deg) rotateY(0deg)"); 
   };
-  const handleLink = (type) => {
-    if (type === 'github') {
-      window.open(constants.social_links.github)
-    } else if (type === 'linkedin') {
-      window.open(constants.social_links.linkedin)
-    } else if (type === 'instagram') {
-      window.open(constants.social_links.instagram)
-    }
-  }
+  // const handleLink = (type) => {
+  //   if (type === 'github') {
+  //     window.open(constants.social_links.github)
+  //   } else if (type === 'linkedin') {
+  //     window.open(constants.social_links.linkedin)
+  //   } else if (type === 'instagram') {
+  //     window.open(constants.social_links.instagram)
+  //   }
+  // }
 
   return (
     <Container>
@@ -175,7 +176,7 @@ const Home = () => {
             />
           </IconContainer>
 
-          <IconContainer onClick={() => handleLink('instagram')}>
+          <IconContainer onClick={() => handleLink('ig')}>
             <RiInstagramFill
               fill='#163440'
             />
