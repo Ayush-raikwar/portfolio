@@ -100,7 +100,7 @@ const Home = () => {
               </div>
             </SameLine>
             <SubText>I'M <Name>Ayush Raikwar</Name></SubText>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom:'2rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom:'2rem', minHeight:80 }}>
               <TypeAnimation
                 sequence={[
                   'Software developer',
@@ -114,7 +114,7 @@ const Home = () => {
                 ]}
                 wrapper="span"
                 speed={50}
-                style={{ fontSize: '2rem', display: 'inline-block' }}
+                style={{ fontSize: '2rem', display: 'inline-block', textAlign:'center' }}
                 repeat={Infinity}
               />
             </div>
