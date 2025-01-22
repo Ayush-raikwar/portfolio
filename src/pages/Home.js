@@ -85,7 +85,7 @@ const Home = () => {
       <Lottie options={showerLottieOptions}
         height={styles.sizes.height}
         width={styles.sizes.width}
-        style={{ position: 'absolute', width: '100%', opacity: .1 }}
+        style={{ position: 'absolute', width: '100%', opacity: .15 }}
       />
       <TopContent id='top-section'>
         <Row className='top-sec-row'>
