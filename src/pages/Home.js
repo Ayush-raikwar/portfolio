@@ -14,6 +14,7 @@ import { RiInstagramFill } from "react-icons/ri";
 import { constants } from '../utils/constants';
 import { Footer } from '../components/Footer';
 import { handleLink } from '../utils/helpers';
+import { ViewCounter } from '../components/ViewCounter';
 
 const Home = () => {
   const devLottieOptions = {
@@ -46,7 +47,7 @@ const Home = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScreenWidth(window.innerWidth); 
+      setScreenWidth(window.innerWidth);
     };
 
     window.addEventListener('resize', handleScroll);
@@ -58,17 +59,17 @@ const Home = () => {
 
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - left; 
-    const y = e.clientY - top;  
+    const x = e.clientX - left;
+    const y = e.clientY - top;
 
-    const rotateX = ((y / height) - 0.5) * 60; 
-    const rotateY = ((x / width) - 0.5) * -60; 
+    const rotateX = ((y / height) - 0.5) * 60;
+    const rotateY = ((x / width) - 0.5) * -60;
 
     setTransform(`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`);
   };
 
   const handleMouseLeave = () => {
-    setTransform("rotateX(0deg) rotateY(0deg)"); 
+    setTransform("rotateX(0deg) rotateY(0deg)");
   };
   // const handleLink = (type) => {
   //   if (type === 'github') {
@@ -100,7 +101,7 @@ const Home = () => {
               </div>
             </SameLine>
             <SubText>I'M <Name>Ayush Raikwar</Name></SubText>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom:'2rem', minHeight:80 }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem', minHeight: 80 }}>
               <TypeAnimation
                 sequence={[
                   'Software developer',
@@ -114,15 +115,15 @@ const Home = () => {
                 ]}
                 wrapper="span"
                 speed={50}
-                style={{ fontSize: '2rem', display: 'inline-block', textAlign:'center' }}
+                style={{ fontSize: '2rem', display: 'inline-block', textAlign: 'center' }}
                 repeat={Infinity}
               />
             </div>
           </LeftCol>
           <RightCol className='top-right-col'>
             <Lottie options={devLottieOptions}
-              height={screenWidth>900?screenWidth * .35:screenWidth*.7}
-              width={screenWidth>900?screenWidth * .35:screenWidth*.7}
+              height={screenWidth > 900 ? screenWidth * .35 : screenWidth * .7}
+              width={screenWidth > 900 ? screenWidth * .35 : screenWidth * .7}
             />
           </RightCol>
         </Row>
@@ -184,7 +185,8 @@ const Home = () => {
         </Socials>
 
       </BottomContent>
-      <Footer/>
+      <ViewCounter slug="home-page" />
+      <Footer />
     </Container>
   )
 }
