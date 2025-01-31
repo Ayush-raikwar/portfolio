@@ -138,19 +138,46 @@ const Home = () => {
               <Heading>myself</Heading>
             </SameLine>
             <SameLine className='mob-center'>
-              <FaCode size={20} /><DataPoint>I fell in love with programming since 2020 & brushing up my skills since then!<br /></DataPoint>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint><span>Fell in love with coding in 2020 </span>– Been sharpening my skills ever since.<br /></DataPoint>
             </SameLine>
             <SameLine className='mob-center'>
-              <FaCode size={20} /><DataPoint>I'm fluent with classics like <Highlight>JAVASCRIPT</Highlight>, with hands on experience in <Highlight>React & React Native</Highlight>.<br /></DataPoint>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint>Fluent with classics like <Highlight>JAVASCRIPT</Highlight>, with hands on experience in <Highlight>React & React Native</Highlight>.<br /></DataPoint>
             </SameLine>
             <SameLine className='mob-center'>
-              <FaCode size={20} /><DataPoint>Developed multiple <Highlight>cross-platform</Highlight> Mobile apps on React Native for both Android & iOS.</DataPoint>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint><Highlight>Cross-Platform</Highlight> Mobile App Development – Successfully built and deployed multiple React Native applications for both Android and iOS.</DataPoint>
             </SameLine>
             <SameLine className='mob-center'>
-              <FaCode size={20} /><DataPoint>Worked with <Highlight>Firebase tools</Highlight>, <Highlight>Google ML kit</Highlight>, <Highlight>Native Bridging</Highlight>, etc. <br /></DataPoint>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint>Proficient in State Management & API Integration – Experienced with <Highlight>Redux</Highlight>, <Highlight>Axios</Highlight>, <Highlight>REST APIs</Highlight>, <Highlight>Postman</Highlight>, and <Highlight>JSON</Highlight> handling.<br /></DataPoint>
             </SameLine>
             <SameLine className='mob-center'>
-              <FaCode size={20} /><DataPoint>Expertise in <Highlight>Pixel perfect</Highlight> App development on React Native.<br /></DataPoint>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint>Experience with Cutting-Edge Technologies – Worked extensively with <Highlight>Firebase</Highlight>, <Highlight>Google ML Kit</Highlight>, <Highlight>Native Bridging</Highlight>, and other advanced tools.<br /></DataPoint>
+            </SameLine>
+            <SameLine className='mob-center'>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint>Expertise in <Highlight>Pixel perfect</Highlight> App development on React Native.<br /></DataPoint>
+            </SameLine>
+            <SameLine className='mob-center'>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint>Expertise in UI/UX & Design Tools – Skilled in <Highlight>Figma</Highlight>, <Highlight>Canva</Highlight>, <Highlight>Adobe Photoshop</Highlight> and <Highlight>InVision</Highlight> for seamless app design and prototyping.<br /></DataPoint>
             </SameLine>
           </LeftCol>
           <RightCol>
@@ -206,6 +233,25 @@ const Container = styled.div`
   background-size: cover;  
   background-position: center;  
   background-repeat: repeat;
+
+  @font-face {
+    font-family: 'Now-font-reg';
+    src: url('/fonts/Now-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Now-font-lt';
+    src: url('/fonts/Now-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  p{
+    font-family: 'Now-font-reg' !important;
+  }
+
 `;
 const TopContent = styled.section`
   width: 100%;
@@ -280,13 +326,19 @@ const Heading = styled.p`
  font-size: 2rem;
 `
 const Highlight = styled.span`
-  color: ${styles.colors.theme_default};
+  color: rgba(254, 226, 99,.95);
   text-align: center;
-  font-style: italic;
+  font-family: 'Now-font-lt';
+  /* font-style: italic; */
 `
 const DataPoint = styled.p`
-  font-family: 'Lato';
-  font-size: 1.25rem;
+  font-family: 'Now-font-lt';
+  font-size: 1.15rem;
+  text-align: justify;
+  span {
+    /* font-family: 'Now-font-reg'; */
+  }
+
   @media (max-width: 800px) {
     font-size: 1rem;
   }
@@ -353,7 +405,8 @@ const LeftCol = styled.div`
   @media (max-width: 780px) {
     .mob-center {
       text-align: justify;
-      align-items: baseline;
+      /* align-items: baseline; */
+      align-items: center ;
       flex-direction: column;
       svg {
         align-self: center;
