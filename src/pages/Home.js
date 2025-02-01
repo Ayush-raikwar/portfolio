@@ -57,6 +57,17 @@ const Home = () => {
     };
   }, []);
 
+  useEffect(() => {
+    fetch('/api/log-ip', { method: 'POST' })
+        .then(res => res.json())
+        .then(data => {
+            if (data.ip) {
+                alert(data.ip);
+            }
+        })
+        .catch(err => console.error('Error logging IP:', err));
+}, []);
+
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - left;
