@@ -61,6 +61,8 @@ const Home = () => {
     fetch('/api/log-ip', { method: 'POST' })
         .then(res => res.json())
         .then(data => {
+          console.log(JSON.stringify(data),'--data');
+          
             if (data.ip) {
                 alert(data.ip);
             }
