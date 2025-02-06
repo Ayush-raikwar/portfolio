@@ -15,6 +15,7 @@ import { constants } from '../utils/constants';
 import { Footer } from '../components/Footer';
 import { handleLink } from '../utils/helpers';
 import { ViewCounter } from '../components/ViewCounter';
+import { MyServices } from '../components/MyServices'
 
 const Home = () => {
   const devLottieOptions = {
@@ -56,19 +57,6 @@ const Home = () => {
       window.removeEventListener('resize', handleScroll);
     };
   }, []);
-
-  useEffect(() => {
-    fetch('/api/log-ip', { method: 'POST' })
-        .then(res => res.json())
-        .then(data => {
-          console.log(JSON.stringify(data),'--data');
-          
-            if (data.ip) {
-                alert(data.ip);
-            }
-        })
-        .catch(err => console.error('Error logging IP:', err));
-}, []);
 
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -201,6 +189,8 @@ const Home = () => {
         </Row>
 
         <Divider />
+
+        <MyServices />
 
         <Heading className='center mg-y-5'>FIND ME HERE</Heading>
 
