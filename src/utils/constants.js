@@ -1,5 +1,5 @@
 import backgroundImage from '../assets/images/home_bg.jpg';
-import comingSoonGif from '../assets/gif/coming-soon.gif';
+import comingSoonGif from '../assets/gif/work_in_progress.gif';
 
 export const constants = {
     social_links: {
