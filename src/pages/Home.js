@@ -131,13 +131,9 @@ const Home = () => {
       </TopContent>
       <Divider />
       <BottomContent id='bottom-section'>
+        <Title>Let me Introduce myself</Title>
         <Row className='bottom-sec-row'>
           <LeftCol>
-            <SameLine className='bottom-left-col-heading'>
-              <Heading>Let me</Heading>
-              <p className='highlight'>Introduce</p>
-              <Heading>myself</Heading>
-            </SameLine>
             <SameLine className='mob-center'>
               <div>
                 <FaCode size={20} />
@@ -191,6 +187,8 @@ const Home = () => {
         <Divider />
 
         <MyServices />
+
+        <Divider />
 
         <Heading className='center mg-y-5'>FIND ME HERE</Heading>
 
@@ -252,7 +250,7 @@ const Container = styled.div`
   }
 
   p{
-    font-family: 'Now-font-reg' !important;
+    font-family: 'Now-font-reg';
   }
 
 `;
@@ -271,14 +269,6 @@ const BottomContent = styled.section`
   @media (max-width: 1100px) {
     .bottom-sec-row {
       flex-direction:column;
-    }
-    .bottom-left-col-heading {
-      justify-content: center;
-      flex-direction: column;
-      margin-bottom: 2rem;
-      p{
-        margin: 0;
-      }
     }
   }
 `
@@ -327,6 +317,7 @@ const Name = styled.span`
 const Heading = styled.p`
  text-align: center;
  font-size: 2rem;
+ font-weight: 700;
 `
 const Highlight = styled.span`
   color: rgba(254, 226, 99,.95);
@@ -438,6 +429,14 @@ const StyledProfileIcon = styled(ProfileIcon)`
     width: 25vw;
     height: 25vw;
   }
+`;
+
+const Title = styled.h2`
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 2rem;
+  text-align: center;
 `;
 
 
