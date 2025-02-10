@@ -16,6 +16,7 @@ import { Footer } from '../components/Footer';
 import { handleLink } from '../utils/helpers';
 import { ViewCounter } from '../components/ViewCounter';
 import { MyServices } from '../components/MyServices'
+import { fetchLastCommit } from '../api/commonApis';
 
 const Home = () => {
   const devLottieOptions = {
@@ -45,6 +46,8 @@ const Home = () => {
 
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [lastUpdate, setLastUpdate] = useState(null);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,6 +60,10 @@ const Home = () => {
       window.removeEventListener('resize', handleScroll);
     };
   }, []);
+
+  useEffect(()=>{
+    fetchLastCommit().then(data=>setLastUpdate(data))
+  },[])
 
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -214,6 +221,7 @@ const Home = () => {
 
       </BottomContent>
       <ViewCounter slug="home-page" />
+      <LastUpdate>Last Updated - {lastUpdate}</LastUpdate>
       <Footer />
     </Container>
   )
@@ -272,6 +280,10 @@ const BottomContent = styled.section`
     }
   }
 `
+const LastUpdate = styled.p`
+  text-align: center;
+`
+
 const Socials = styled.div`
   display: flex;
   justify-content: center;
