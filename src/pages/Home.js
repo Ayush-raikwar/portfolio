@@ -140,7 +140,7 @@ const Home = () => {
       <BottomContent id='bottom-section'>
         <Title>Let me Introduce myself</Title>
         <Row className='bottom-sec-row'>
-          <LeftCol>
+          <LeftCol className='info'>
             <SameLine className='mob-center'>
               <div>
                 <FaCode size={20} />
@@ -354,6 +354,8 @@ const Row = styled.div`
   width: 80%;
   margin: auto;
   display:flex;
+
+  //classes
   .left, .right {
     flex:1;
   }
@@ -369,9 +371,16 @@ const Row = styled.div`
   .mg-y-5 {
     margin: 5% auto;
   }
+  .info {
+    background-color: rgba(77, 77, 76, 0.25);
+    backdrop-filter: blur(5px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
 
+  //media query
   @media (max-width:680px) {
-    width: 90%;
+    width: 98%;
   }
 
   @media (max-width: 1000px) {
