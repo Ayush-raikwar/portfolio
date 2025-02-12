@@ -9,5 +9,9 @@ export const handleLink = (type) => {
         window.open(constants.social_links.instagram)
     } else if (type === 'email') {
         window.open(constants.social_links.mail)
+    } else if (type === 'yt') {
+        window.open(constants.social_links.yt)
+    } else if (type === 'photography') {
+        window.open(constants.social_links.photography)
     }
 }
