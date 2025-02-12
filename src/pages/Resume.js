@@ -26,22 +26,37 @@ export const Resume = () => {
     return (
         <Container>
             <Section>
-                <ResumeImg
-                    src='https://github.com/Ayush-raikwar/resume/blob/main/ayush-res-pg1.jpg?raw=true'
-                    alt='resume-img'
-                />
-                <ResumeImg
-                    src='https://github.com/Ayush-raikwar/resume/blob/main/ayush-res-pg2.jpg?raw=true'
-                    alt='resume-img'
-                />
+                <h1>Resume</h1>
                 <button onClick={downloadPDF}>Download</button>
+                <Row>
+
+                    <ResumeImg
+                        src='https://github.com/Ayush-raikwar/resume/blob/main/ayush-res-pg1.jpg?raw=true'
+                        alt='resume-img'
+                    />
+                    <ResumeImg
+                        src='https://github.com/Ayush-raikwar/resume/blob/main/ayush-res-pg2.jpg?raw=true'
+                        alt='resume-img'
+                    />
+                </Row>
             </Section>
             <Footer />
         </Container>
     )
 }
 
+const Row = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    gap:1.5rem;
 
+    @media (max-width:1100px) {
+        padding-bottom: 10%;
+        flex-direction: column;
+    }
+`
 const Container = styled.div`
     color: ${styles.colors.white};
     background-image: url(${constants.images.bg_image});  
@@ -51,23 +66,29 @@ const Container = styled.div`
     
 `
 const Section = styled.section`
-    height: 100vh;
-    padding-top: 1rem;
+    min-height: 100vh;
+    padding-top: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: auto;
-    gap:1.5rem;
+    flex-direction: column;
     button {
-        position: absolute;
+        /* position: absolute; */
         border: 1px solid grey;
         border-radius: 0.5rem;
         padding: 0.5rem;
         background-color: ${styles.colors.white};
         cursor: pointer;
-        top: 11%;
         text-transform: uppercase;
+        margin-bottom: 2rem;
     }
+
+    @media (max-width:1100px) {
+        padding-top: 22%;
+        padding-bottom: 10%;
+        flex-direction: column;
+    }
+
 `
 
 const ResumeImg = styled.img`
