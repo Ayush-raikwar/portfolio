@@ -7,7 +7,7 @@ import devAnimation from '../assets/json/dev_animation.json'
 import hiDevAnimation from '../assets/json/hello_dev.json'
 import showerAnimation from '../assets/json/shower.json'
 import { ReactComponent as ProfileIcon } from '../assets/icons/programmer.svg'
-import { FaCode } from "react-icons/fa";
+import { FaCode, FaEnvelope, FaGoogle, FaMapMarkerAlt, FaPhone, FaTwitter } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
@@ -17,6 +17,7 @@ import { handleLink } from '../utils/helpers';
 import { ViewCounter } from '../components/ViewCounter';
 import { MyServices } from '../components/MyServices'
 import { fetchLastCommit } from '../api/commonApis';
+import { Skills } from '../components/Skills';
 
 const Home = () => {
   const devLottieOptions = {
@@ -61,9 +62,9 @@ const Home = () => {
     };
   }, []);
 
-  useEffect(()=>{
-    fetchLastCommit().then(data=>setLastUpdate(data))
-  },[])
+  useEffect(() => {
+    fetchLastCommit().then(data => setLastUpdate(data))
+  }, [])
 
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -108,7 +109,7 @@ const Home = () => {
                 />
               </div>
             </SameLine>
-            <SubText>I'M <Name>Ayush Raikwar</Name></SubText>
+            <SubText>I'M <NameMain>Ayush Raikwar</NameMain></SubText>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem', minHeight: 80 }}>
               <TypeAnimation
                 sequence={[
@@ -181,17 +182,41 @@ const Home = () => {
               <div>
                 <FaCode size={20} />
               </div>
-              <DataPoint>Expertise in UI/UX & Design Tools – Skilled in <Highlight>Figma</Highlight>, <Highlight>Canva</Highlight>, <Highlight>Adobe Photoshop</Highlight> and <Highlight>InVision</Highlight> for seamless app design and prototyping.<br /></DataPoint>
+              <DataPoint>Expertise in UI/UX & Design Tools – Skilled in <Highlight>Figma</Highlight>, <Highlight>Canva</Highlight> & other tools for seamless app design and prototyping.<br /></DataPoint>
             </SameLine>
           </LeftCol>
-          <RightCol>
+          {/* <RightCol>
             <IconWrapper onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
               <StyledProfileIcon style={{ transform }} />
             </IconWrapper>
-          </RightCol>
+          </RightCol> */}
+          <Card>
+            <AvatarContainer style={{ position: "relative" }}>
+              <Avatar src={require('../assets/images/avatar.jpg')} />
+              <StatusIndicator />
+            </AvatarContainer>
+            <Name>Ayush Raikwar</Name>
+            <Role>React Native Developer</Role>
+            <Separator />
+            <Info>
+              <Icon><FaEnvelope /></Icon>
+              ayushraikwar45@gmail.com
+            </Info>
+            <Info>
+              <Icon><FaPhone /></Icon>
+              +91-797469****
+            </Info>
+            <Info>
+              <Icon><FaMapMarkerAlt /></Icon>
+              India
+            </Info>
+            
+          </Card>
         </Row>
 
         <Divider />
+
+        <Skills />
 
         <MyServices />
 
@@ -235,6 +260,10 @@ const fadeIn = keyframes`
   opacity: 1;
 }
 `;
+const pulse = keyframes`
+  0%{ box-shadow: 0 0 0 0 #39ff14; }
+  100%{ box-shadow: 0 0 0 14px #69ffa800; }
+`;
 
 const Container = styled.div`
   color: ${styles.colors.white};
@@ -274,9 +303,13 @@ const TopContent = styled.section`
 
 `
 const BottomContent = styled.section`
+  .bottom-sec-row {
+    gap:2rem;
+  }
   @media (max-width: 1100px) {
     .bottom-sec-row {
-      flex-direction:column;
+      flex-direction:column-reverse;
+      align-items: center;
     }
   }
 `
@@ -318,7 +351,7 @@ const SubText = styled.p`
   animation-delay: 2s;
   text-align: center;
 `;
-const Name = styled.span`
+const NameMain = styled.span`
   font-size: 2.2rem;
   color:${styles.colors.theme_default};
   text-transform: uppercase; 
@@ -372,7 +405,8 @@ const Row = styled.div`
     margin: 5% auto;
   }
   .info {
-    background-color: rgba(77, 77, 76, 0.25);
+    /* background-color: rgba(77, 77, 76, 0.25); */
+    background-color: rgba(24,24,24,1);
     backdrop-filter: blur(5px);
     border-radius: 1rem;
     padding: 1.5rem;
@@ -459,6 +493,94 @@ const Title = styled.h2`
   margin-bottom: 2rem;
   text-align: center;
 `;
+
+const AvatarContainer = styled.div`
+  border-radius: 1rem;
+  background:linear-gradient(135deg, #2a2a2a,rgb(28, 28, 28));
+  padding: 1rem;
+  width: min-content;
+  margin: 1rem auto;
+
+`
+
+const Separator = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255,255,255,.25);
+  border-radius:.1rem;
+  margin: 2rem auto;
+`
+
+const Card = styled.div`
+  background: #181818;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+`;
+
+const Avatar = styled.img`
+  width: 80px;
+  height: 80px;
+  background: gray;
+  border-radius: 50%;
+  margin: 0 auto;
+`;
+
+const StatusIndicator = styled.div`
+  /* width: 12px;
+  height: 12px;
+  background: green;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  top: 10px; */
+  width: 12px;
+  height: 12px;
+  background: green;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  animation: ${pulse} 1.5s infinite ease-in-out;
+`;
+
+const Name = styled.h2`
+  margin: 10px 0;
+  font-size: 20px;
+`;
+
+const Role = styled.div`
+  background: #333;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+`;
+
+const Info = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 14px;
+  
+`;
+
+const Icon = styled.div`
+  margin-right: 10px;
+  color: yellow;
+`;
+
+const SocialIcons = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+`;
+
 
 
 export default Home;
