@@ -245,7 +245,7 @@ const Home = () => {
         </Socials>
 
       </BottomContent>
-      <ViewCounter slug="home-page" />
+      {/* <ViewCounter slug="home-page" /> */}
       <LastUpdate>Last Updated - {lastUpdate}</LastUpdate>
       <Footer />
     </Container>
