@@ -2,40 +2,9 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components';
 import { styles } from '../utils/commonStyles';
 import { constants } from '../utils/constants';
+import PersonalProjImg from '../assets/images/personal.png';
 
 export default function Projects() {
-
-  const projects = [
-    {
-      title: 'ToneOp App',
-      description: 'A health and fitness app featuring custom React Native packages, UI developed from scratch, and enhancements for bug fixes and new features.',
-      github: '',
-      demo: '',
-      imgUrl:'https://play-lh.googleusercontent.com/qHUTNaWNuA1UcojPHmfuh_Nprkk27vZCS6BOO_ka-clDLGDfgmV5l5YjdIBObbvenM4=w5120-h2880-rw'
-    },
-    {
-      title: 'MaxLearn App',
-      description: 'A quiz learning application with draggable elements, bottom sheets, video integration, and swipeable FlatLists.',
-      github: '',
-      demo: '',
-      imgUrl:'https://play-lh.googleusercontent.com/z93CI7YWzxOYzimke2ei6bbRbnKnWQ1Zt_UtMsCV-OfqFD-kpnEqVrfX8qNZOe7TEJ0=w5120-h2880-rw'
-    },
-    {
-      title: 'Client Projects at Bytive Technologies',
-      description: 'Web and app development projects for clients in the USA, Mexico, and Germany.',
-      github: '',
-      demo: '',
-      imgUrl:'https://ifda.in/blog/img/react-js-development.jpeg'
-    },
-    {
-      title: 'React Web Apps at Oodles Technologies',
-      description: 'ReactJS web applications with styled components and Ethereum wallet integration.',
-      github: '',
-      demo: '',
-      imgUrl:'https://ifda.in/blog/img/react-js-development.jpeg'
-    },
-  ];
-
 
   return (
     <Container>
@@ -43,10 +12,11 @@ export default function Projects() {
       <Title>My Recent Works</Title>
       <Subtitle>Here are a few projects I’ve worked on recently.</Subtitle>
       <ProjectsGrid>
-        {projects.map((project, index) => (
+        {constants.projects.map((project, index) => (
           <ProjectCard key={index}>
             <ImgContainer>
               <ProjectImage src={project.imgUrl} />
+              {project?.personal&&<PersonalTag src={PersonalProjImg} />}
             </ImgContainer>
             <ProjectContent>
               <ProjectTitle>{project.title}</ProjectTitle>
@@ -141,6 +111,7 @@ const ImgContainer = styled.div`
   display: flex;
   justify-content: center;
   overflow: hidden !important;
+  position: relative;
 `
 
 const ProjectImage = styled.img`
@@ -186,3 +157,13 @@ const Button = styled.a`
   }
 `;
 
+const PersonalTag = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70px;
+  height: 70px;
+  /* border-radius: 50%; */
+  background-color: rgba(255,255,255,.5);
+  z-index: 1;
+`
