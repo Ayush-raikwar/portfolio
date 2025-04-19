@@ -94,7 +94,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Best React Native & Mobile App Developer in Central India</title>
+        <title>Ayush Raikwar | Best React Native & Mobile App Developer in Central India</title>
         <meta name="description" content="Looking for a freelance React or React Native developer in Bhopal or India? Let's build stunning apps together!" />
         <meta name="keywords" content="React Native Developer Bhopal, Mobile App Developer India, Freelance React Developer, Website Developer Bhopal" />
         <meta name="robots" content="index, follow" />
