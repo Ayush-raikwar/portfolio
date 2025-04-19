@@ -14,7 +14,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 export const Resume = () => {
 
     function downloadPDF() {
-        const pdfUrl = "https://drive.google.com/file/d/1JjUQkolWZoxzlxwSDId1PGSLtFDKCMXb/view?usp=sharing";
+        const pdfUrl = "https://drive.google.com/file/d/1D7bmr3Q9Y61lLYCdpi-sjqqNgFs0ki58/view?usp=sharing";
         const link = document.createElement("a");
         link.href = pdfUrl;
         link.setAttribute("download", "sample.pdf");
@@ -31,11 +31,11 @@ export const Resume = () => {
                 <Row>
 
                     <ResumeImg
-                        src='https://github.com/Ayush-raikwar/resume/blob/main/ayush-res-pg1.jpg?raw=true'
+                        src='https://github.com/Ayush-raikwar/resume/blob/main/resume170425/AyushRaikwar_ReactNative_Resume_page-0001.jpg?raw=true'
                         alt='resume-img'
                     />
                     <ResumeImg
-                        src='https://github.com/Ayush-raikwar/resume/blob/main/ayush-res-pg2.jpg?raw=true'
+                        src='https://github.com/Ayush-raikwar/resume/blob/main/resume170425/AyushRaikwar_ReactNative_Resume_page-0002.jpg?raw=true'
                         alt='resume-img'
                     />
                 </Row>
