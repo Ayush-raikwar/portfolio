@@ -3,34 +3,44 @@ import styled, { keyframes } from 'styled-components';
 import { styles } from '../utils/commonStyles';
 import { constants } from '../utils/constants';
 import PersonalProjImg from '../assets/images/personal.png';
+import { Helmet } from 'react-helmet';
 
 export default function Projects() {
 
   return (
-    <Container>
-    <PageContainer>
-      <Title>My Recent Works</Title>
-      <Subtitle>Here are a few projects I’ve worked on recently.</Subtitle>
-      <ProjectsGrid>
-        {constants.projects.map((project, index) => (
-          <ProjectCard key={index}>
-            <ImgContainer>
-              <ProjectImage src={project.imgUrl} />
-              {project?.personal&&<PersonalTag src={PersonalProjImg} />}
-            </ImgContainer>
-            <ProjectContent>
-              <ProjectTitle>{project.title}</ProjectTitle>
-              <ProjectDescription>{project.description}</ProjectDescription>
-              <ButtonGroup>
-                {project?.github&&<Button href={project.github} target="_blank">GitHub</Button>}
-                {project?.demo&&<Button href={project.demo} target="_blank">Demo</Button>}
-              </ButtonGroup>
-            </ProjectContent>
-          </ProjectCard>
-        ))}
-      </ProjectsGrid>
-    </PageContainer>
-    </Container>
+    <>
+      <Helmet>
+        <title>Best React Native & Mobile App Developer in Central India</title>
+        <meta name="description" content="Looking for a freelance React or React Native developer in Bhopal or India? Let's build stunning apps together!" />
+        <meta name="keywords" content="React Native Developer Bhopal, Mobile App Developer India, Freelance React Developer, Website Developer Bhopal" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://asr-dev.vercel.app/" />
+      </Helmet>
+      <Container>
+        <PageContainer>
+          <Title>My Recent Works</Title>
+          <Subtitle>Here are a few projects I’ve worked on recently.</Subtitle>
+          <ProjectsGrid>
+            {constants.projects.map((project, index) => (
+              <ProjectCard key={index}>
+                <ImgContainer>
+                  <ProjectImage src={project.imgUrl} />
+                  {project?.personal && <PersonalTag src={PersonalProjImg} />}
+                </ImgContainer>
+                <ProjectContent>
+                  <ProjectTitle>{project.title}</ProjectTitle>
+                  <ProjectDescription>{project.description}</ProjectDescription>
+                  <ButtonGroup>
+                    {project?.github && <Button href={project.github} target="_blank">GitHub</Button>}
+                    {project?.demo && <Button href={project.demo} target="_blank">Demo</Button>}
+                  </ButtonGroup>
+                </ProjectContent>
+              </ProjectCard>
+            ))}
+          </ProjectsGrid>
+        </PageContainer>
+      </Container>
+    </>
   )
 }
 

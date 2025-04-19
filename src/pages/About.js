@@ -15,6 +15,7 @@ import { GridComponent } from '../components/GridComponent';
 import { TbBrandReactNative } from 'react-icons/tb';
 import { FcLinux } from 'react-icons/fc';
 import { GitHubGraph } from '../components/GithubGraph';
+import { Helmet } from 'react-helmet';
 
 export default function About() {
 
@@ -55,66 +56,75 @@ export default function About() {
   ]
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-    useEffect(() => {
-      const handleScroll = () => {
-        setScreenWidth(window.innerWidth);
-      };
-      window.addEventListener('resize', handleScroll);
-      return () => {
-        window.removeEventListener('resize', handleScroll);
-      };
-    }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
 
   return (
-    <Container>
-      <TopSection>
-        <Col className='left-col'>
-          <Title>Know who <TitleHighlight>I AM</TitleHighlight></Title>
+    <>
+      <Helmet>
+        <title>Best React Native & Mobile App Developer in Central India</title>
+        <meta name="description" content="Looking for a freelance React or React Native developer in Bhopal or India? Let's build stunning apps together!" />
+        <meta name="keywords" content="React Native Developer Bhopal, Mobile App Developer India, Freelance React Developer, Website Developer Bhopal" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://asr-dev.vercel.app/" />
+      </Helmet>
+      <Container>
+        <TopSection>
+          <Col className='left-col'>
+            <Title>Know who <TitleHighlight>I AM</TitleHighlight></Title>
 
-          <Info>👋 Hey, I’m Ayush Raikwar, a tech geek from Bhopal with 3+ years in React Native & React.js. I build <Highlight>high-performance</Highlight> apps, integrate <Highlight>Google APIs</Highlight>, and explore <Highlight>native bridging</Highlight>.<br /><br />
-            Always up for a challenge—let’s build something epic! 🚀</Info><br /><br />
-          <Info>Here are some of my hobbies -</Info>
-          <DataPoint>
-            <FaReact color='cyan' />
-            <p>Gaming</p>
-          </DataPoint>
-          <DataPoint onClick={() => handleLink('photography')}>
-            <FaReact color='cyan' />
-            <p className='hover-effect'>Photography</p>
-          </DataPoint>
-          <DataPoint onClick={() => handleLink('yt')}>
-            <FaReact color='cyan' />
-            <p className='hover-effect'>Vlogging</p>
-          </DataPoint>
-          <DataPoint>
-            <FaReact color='cyan' />
-            <p>Off-roading</p>
-          </DataPoint>
-          <DataPoint>
-            <FaReact color='cyan' />
-            <p>Swimming/Free diving</p>
-          </DataPoint>
+            <Info>👋 Hey, I’m Ayush Raikwar, a tech geek from Bhopal with 3+ years in React Native & React.js. I build <Highlight>high-performance</Highlight> apps, integrate <Highlight>Google APIs</Highlight>, and explore <Highlight>native bridging</Highlight>.<br /><br />
+              Always up for a challenge—let’s build something epic! 🚀</Info><br /><br />
+            <Info>Here are some of my hobbies -</Info>
+            <DataPoint>
+              <FaReact color='cyan' />
+              <p>Gaming</p>
+            </DataPoint>
+            <DataPoint onClick={() => handleLink('photography')}>
+              <FaReact color='cyan' />
+              <p className='hover-effect'>Photography</p>
+            </DataPoint>
+            <DataPoint onClick={() => handleLink('yt')}>
+              <FaReact color='cyan' />
+              <p className='hover-effect'>Vlogging</p>
+            </DataPoint>
+            <DataPoint>
+              <FaReact color='cyan' />
+              <p>Off-roading</p>
+            </DataPoint>
+            <DataPoint>
+              <FaReact color='cyan' />
+              <p>Swimming/Free diving</p>
+            </DataPoint>
 
-        </Col>
-        <Col className='p-0'>
-          <Lottie options={lottieOptions}
-            height={screenWidth > 800 ? 400 : 320}
-            width={screenWidth > 800 ? 400 : 320}
-          />
-        </Col>
-      </TopSection>
-      <BottomSection>
-        <Title>Professional <TitleHighlight>Skillset</TitleHighlight></Title>
-        <GridComponent data={skills} />
+          </Col>
+          <Col className='p-0'>
+            <Lottie options={lottieOptions}
+              height={screenWidth > 800 ? 400 : 320}
+              width={screenWidth > 800 ? 400 : 320}
+            />
+          </Col>
+        </TopSection>
+        <BottomSection>
+          <Title>Professional <TitleHighlight>Skillset</TitleHighlight></Title>
+          <GridComponent data={skills} />
 
-        <Title>Tools <TitleHighlight>I use</TitleHighlight></Title>
-        <GridComponent data={tools} />
-      </BottomSection>
+          <Title>Tools <TitleHighlight>I use</TitleHighlight></Title>
+          <GridComponent data={tools} />
+        </BottomSection>
 
-      <GitHubGraph />
-      <Divider />
+        <GitHubGraph />
+        <Divider />
 
-    </Container>
+      </Container>
+    </>
   )
 }
 

@@ -5,6 +5,7 @@ import { styles } from '../utils/commonStyles';
 import { constants } from '../utils/constants';
 import { Footer } from '../components/Footer';
 import pdfFile from '../assets/docs/cv_ayush.pdf'
+import { Helmet } from 'react-helmet';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.mjs',
@@ -24,24 +25,33 @@ export const Resume = () => {
     }
 
     return (
-        <Container>
-            <Section>
-                <h1>Resume</h1>
-                <button onClick={downloadPDF}>Download</button>
-                <Row>
+        <>
+            <Helmet>
+                <title>Best React Native & Mobile App Developer in Central India</title>
+                <meta name="description" content="Looking for a freelance React or React Native developer in Bhopal or India? Let's build stunning apps together!" />
+                <meta name="keywords" content="React Native Developer Bhopal, Mobile App Developer India, Freelance React Developer, Website Developer Bhopal" />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href="https://asr-dev.vercel.app/" />
+            </Helmet>
+            <Container>
+                <Section>
+                    <h1>Resume</h1>
+                    <button onClick={downloadPDF}>Download</button>
+                    <Row>
 
-                    <ResumeImg
-                        src='https://github.com/Ayush-raikwar/resume/blob/main/resume170425/AyushRaikwar_ReactNative_Resume_page-0001.jpg?raw=true'
-                        alt='resume-img'
-                    />
-                    <ResumeImg
-                        src='https://github.com/Ayush-raikwar/resume/blob/main/resume170425/AyushRaikwar_ReactNative_Resume_page-0002.jpg?raw=true'
-                        alt='resume-img'
-                    />
-                </Row>
-            </Section>
-            <Footer />
-        </Container>
+                        <ResumeImg
+                            src='https://github.com/Ayush-raikwar/resume/blob/main/resume170425/AyushRaikwar_ReactNative_Resume_page-0001.jpg?raw=true'
+                            alt='resume-img'
+                        />
+                        <ResumeImg
+                            src='https://github.com/Ayush-raikwar/resume/blob/main/resume170425/AyushRaikwar_ReactNative_Resume_page-0002.jpg?raw=true'
+                            alt='resume-img'
+                        />
+                    </Row>
+                </Section>
+                <Footer />
+            </Container>
+        </>
     )
 }
 
