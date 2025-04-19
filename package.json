@@ -13,7 +13,6 @@
     "react": "^19.0.0",
     "react-calendar-heatmap": "^1.9.0",
     "react-dom": "^19.0.0",
-    "react-helmet": "^6.1.0",
     "react-icons": "^5.4.0",
     "react-lottie": "^1.2.10",
     "react-pdf": "^9.2.1",
@@ -26,13 +25,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate-sitemap": "sitemap-generator https://asr-dev.vercel.app --output ./public/"
-  },
-  "reactSnap": {
-    "inlineCss": true
   },
   "eslintConfig": {
     "extends": [
@@ -54,6 +48,5 @@
   },
   "devDependencies": {
     "react-snap": "^1.23.0",
-    "sitemap-generator-cli": "^7.5.0"
   }
 }

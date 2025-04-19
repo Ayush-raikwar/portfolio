@@ -18,7 +18,6 @@ import { ViewCounter } from '../components/ViewCounter';
 import { MyServices } from '../components/MyServices'
 import { fetchLastCommit } from '../api/commonApis';
 import { Skills } from '../components/Skills';
-import { Helmet } from 'react-helmet';
 
 const Home = () => {
   const devLottieOptions = {
@@ -92,169 +91,164 @@ const Home = () => {
   // }
 
   return (
-    <Helmet>
-      <meta name="description" content="Best React and mobile app developer in Bhopal, delivering high-performance websites and apps." />
-      <meta name="keywords" content="freelance react developer bhopal, mobile app developer bhopal, best app developer india" />
-      <link rel="canonical" href="https://asr-dev.vercel.app/" />
-      <Container>
-        <Lottie options={showerLottieOptions}
-          height={styles.sizes.height}
-          width={styles.sizes.width}
-          style={{ position: 'absolute', width: '100%', opacity: .15 }}
-        />
-        <TopContent id='top-section'>
-          <Row className='top-sec-row'>
-            <LeftCol>
-              <SameLine className='top-content-col'>
-                <WelcomeMessage>Hello!</WelcomeMessage>
-                <div>
-                  <Lottie options={hiLottieOptions}
-                    height={66}
-                    width={60}
-                  />
-                </div>
-              </SameLine>
-              <SubText>I'M <NameMain>Ayush Raikwar</NameMain></SubText>
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem', minHeight: 80 }}>
-                <TypeAnimation
-                  sequence={[
-                    'Software developer',
-                    1000,
-                    'React Native Developer',
-                    1000,
-                    'React Js Developer',
-                    1000,
-                    'Freelancer',
-                    1000
-                  ]}
-                  wrapper="span"
-                  speed={50}
-                  style={{ fontSize: '2rem', display: 'inline-block', textAlign: 'center' }}
-                  repeat={Infinity}
+    <Container>
+      <Lottie options={showerLottieOptions}
+        height={styles.sizes.height}
+        width={styles.sizes.width}
+        style={{ position: 'absolute', width: '100%', opacity: .15 }}
+      />
+      <TopContent id='top-section'>
+        <Row className='top-sec-row'>
+          <LeftCol>
+            <SameLine className='top-content-col'>
+              <WelcomeMessage>Hello!</WelcomeMessage>
+              <div>
+                <Lottie options={hiLottieOptions}
+                  height={66}
+                  width={60}
                 />
               </div>
-            </LeftCol>
-            <RightCol className='top-right-col'>
-              <Lottie options={devLottieOptions}
-                height={screenWidth > 900 ? screenWidth * .35 : screenWidth * .7}
-                width={screenWidth > 900 ? screenWidth * .35 : screenWidth * .7}
+            </SameLine>
+            <SubText>I'M <NameMain>Ayush Raikwar</NameMain></SubText>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem', minHeight: 80 }}>
+              <TypeAnimation
+                sequence={[
+                  'Software developer',
+                  1000,
+                  'React Native Developer',
+                  1000,
+                  'React Js Developer',
+                  1000,
+                  'Freelancer',
+                  1000
+                ]}
+                wrapper="span"
+                speed={50}
+                style={{ fontSize: '2rem', display: 'inline-block', textAlign: 'center' }}
+                repeat={Infinity}
               />
-            </RightCol>
-          </Row>
-        </TopContent>
-        <Divider />
-        <BottomContent id='bottom-section'>
-          <Title>Let me Introduce myself</Title>
-          <Row className='bottom-sec-row'>
-            <LeftCol className='info'>
-              <SameLine className='mob-center'>
-                <div>
-                  <FaCode size={20} />
-                </div>
-                <DataPoint><span>Fell in love with coding in 2020 </span>– Been sharpening my skills ever since.<br /></DataPoint>
-              </SameLine>
-              <SameLine className='mob-center'>
-                <div>
-                  <FaCode size={20} />
-                </div>
-                <DataPoint>Fluent with classics like <Highlight>JAVASCRIPT</Highlight>, with hands on experience in <Highlight>React & React Native</Highlight>.<br /></DataPoint>
-              </SameLine>
-              <SameLine className='mob-center'>
-                <div>
-                  <FaCode size={20} />
-                </div>
-                <DataPoint><Highlight>Cross-Platform</Highlight> Mobile App Development – Successfully built and deployed multiple React Native applications for both Android and iOS.</DataPoint>
-              </SameLine>
-              <SameLine className='mob-center'>
-                <div>
-                  <FaCode size={20} />
-                </div>
-                <DataPoint>Proficient in State Management & API Integration – Experienced with <Highlight>Redux</Highlight>, <Highlight>Axios</Highlight>, <Highlight>REST APIs</Highlight>, <Highlight>Postman</Highlight>, and <Highlight>JSON</Highlight> handling.<br /></DataPoint>
-              </SameLine>
-              <SameLine className='mob-center'>
-                <div>
-                  <FaCode size={20} />
-                </div>
-                <DataPoint>Experience with Cutting-Edge Technologies – Worked extensively with <Highlight>Firebase</Highlight>, <Highlight>Google ML Kit</Highlight>, <Highlight>Native Bridging</Highlight>, and other advanced tools.<br /></DataPoint>
-              </SameLine>
-              <SameLine className='mob-center'>
-                <div>
-                  <FaCode size={20} />
-                </div>
-                <DataPoint>Expertise in <Highlight>Pixel perfect</Highlight> App development on React Native.<br /></DataPoint>
-              </SameLine>
-              <SameLine className='mob-center'>
-                <div>
-                  <FaCode size={20} />
-                </div>
-                <DataPoint>Expertise in UI/UX & Design Tools – Skilled in <Highlight>Figma</Highlight>, <Highlight>Canva</Highlight> & other tools for seamless app design and prototyping.<br /></DataPoint>
-              </SameLine>
-            </LeftCol>
-            {/* <RightCol>
+            </div>
+          </LeftCol>
+          <RightCol className='top-right-col'>
+            <Lottie options={devLottieOptions}
+              height={screenWidth > 900 ? screenWidth * .35 : screenWidth * .7}
+              width={screenWidth > 900 ? screenWidth * .35 : screenWidth * .7}
+            />
+          </RightCol>
+        </Row>
+      </TopContent>
+      <Divider />
+      <BottomContent id='bottom-section'>
+        <Title>Let me Introduce myself</Title>
+        <Row className='bottom-sec-row'>
+          <LeftCol className='info'>
+            <SameLine className='mob-center'>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint><span>Fell in love with coding in 2020 </span>– Been sharpening my skills ever since.<br /></DataPoint>
+            </SameLine>
+            <SameLine className='mob-center'>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint>Fluent with classics like <Highlight>JAVASCRIPT</Highlight>, with hands on experience in <Highlight>React & React Native</Highlight>.<br /></DataPoint>
+            </SameLine>
+            <SameLine className='mob-center'>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint><Highlight>Cross-Platform</Highlight> Mobile App Development – Successfully built and deployed multiple React Native applications for both Android and iOS.</DataPoint>
+            </SameLine>
+            <SameLine className='mob-center'>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint>Proficient in State Management & API Integration – Experienced with <Highlight>Redux</Highlight>, <Highlight>Axios</Highlight>, <Highlight>REST APIs</Highlight>, <Highlight>Postman</Highlight>, and <Highlight>JSON</Highlight> handling.<br /></DataPoint>
+            </SameLine>
+            <SameLine className='mob-center'>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint>Experience with Cutting-Edge Technologies – Worked extensively with <Highlight>Firebase</Highlight>, <Highlight>Google ML Kit</Highlight>, <Highlight>Native Bridging</Highlight>, and other advanced tools.<br /></DataPoint>
+            </SameLine>
+            <SameLine className='mob-center'>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint>Expertise in <Highlight>Pixel perfect</Highlight> App development on React Native.<br /></DataPoint>
+            </SameLine>
+            <SameLine className='mob-center'>
+              <div>
+                <FaCode size={20} />
+              </div>
+              <DataPoint>Expertise in UI/UX & Design Tools – Skilled in <Highlight>Figma</Highlight>, <Highlight>Canva</Highlight> & other tools for seamless app design and prototyping.<br /></DataPoint>
+            </SameLine>
+          </LeftCol>
+          {/* <RightCol>
             <IconWrapper onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
               <StyledProfileIcon style={{ transform }} />
             </IconWrapper>
           </RightCol> */}
-            <Card>
-              <AvatarContainer style={{ position: "relative" }}>
-                <Avatar src={require('../assets/images/avatar.jpg')} />
-                <StatusIndicator />
-              </AvatarContainer>
-              <Name>Ayush Raikwar</Name>
-              <Role>React Native Developer</Role>
-              <Separator />
-              <Info>
-                <Icon><FaEnvelope /></Icon>
-                ayushraikwar45@gmail.com
-              </Info>
-              <Info>
-                <Icon><FaPhone /></Icon>
-                +91-797469****
-              </Info>
-              <Info>
-                <Icon><FaMapMarkerAlt /></Icon>
-                India
-              </Info>
+          <Card>
+            <AvatarContainer style={{ position: "relative" }}>
+              <Avatar src={require('../assets/images/avatar.jpg')} />
+              <StatusIndicator />
+            </AvatarContainer>
+            <Name>Ayush Raikwar</Name>
+            <Role>React Native Developer</Role>
+            <Separator />
+            <Info>
+              <Icon><FaEnvelope /></Icon>
+              ayushraikwar45@gmail.com
+            </Info>
+            <Info>
+              <Icon><FaPhone /></Icon>
+              +91-797469****
+            </Info>
+            <Info>
+              <Icon><FaMapMarkerAlt /></Icon>
+              India
+            </Info>
 
-            </Card>
-          </Row>
+          </Card>
+        </Row>
 
-          <Divider />
+        <Divider />
 
-          <Skills />
+        <Skills />
 
-          <MyServices />
+        <MyServices />
 
-          <Divider />
+        <Divider />
 
-          <Heading className='center mg-y-5'>FIND ME HERE</Heading>
+        <Heading className='center mg-y-5'>FIND ME HERE</Heading>
 
-          <Socials>
-            <IconContainer onClick={() => handleLink('github')}>
-              <FaGithub
-                fill='#163440'
-              />
-            </IconContainer>
+        <Socials>
+          <IconContainer onClick={() => handleLink('github')}>
+            <FaGithub
+              fill='#163440'
+            />
+          </IconContainer>
 
-            <IconContainer onClick={() => handleLink('linkedin')}>
-              <FaLinkedin
-                fill='#163440'
-              />
-            </IconContainer>
+          <IconContainer onClick={() => handleLink('linkedin')}>
+            <FaLinkedin
+              fill='#163440'
+            />
+          </IconContainer>
 
-            <IconContainer onClick={() => handleLink('ig')}>
-              <RiInstagramFill
-                fill='#163440'
-              />
-            </IconContainer>
-          </Socials>
+          <IconContainer onClick={() => handleLink('ig')}>
+            <RiInstagramFill
+              fill='#163440'
+            />
+          </IconContainer>
+        </Socials>
 
-        </BottomContent>
-        {/* <ViewCounter slug="home-page" /> */}
-        <LastUpdate>Last Updated - {lastUpdate}</LastUpdate>
-        <Footer />
-      </Container>
-    </Helmet>
+      </BottomContent>
+      {/* <ViewCounter slug="home-page" /> */}
+      <LastUpdate>Last Updated - {lastUpdate}</LastUpdate>
+      <Footer />
+    </Container>
   )
 }
 
