@@ -19,6 +19,7 @@ import { MyServices } from '../components/MyServices'
 import { fetchLastCommit } from '../api/commonApis';
 import { Skills } from '../components/Skills';
 import { Helmet } from 'react-helmet';
+import { incrementCounter } from '../utils/firebase';
 
 const Home = () => {
   const devLottieOptions = {
@@ -65,22 +66,23 @@ const Home = () => {
 
   useEffect(() => {
     fetchLastCommit().then(data => setLastUpdate(data))
+    incrementCounter('portfolio-view-count', 'count', 'count_so_far', 1)
   }, [])
 
-  const handleMouseMove = (e) => {
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - left;
-    const y = e.clientY - top;
+  // const handleMouseMove = (e) => {
+  //   const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+  //   const x = e.clientX - left;
+  //   const y = e.clientY - top;
 
-    const rotateX = ((y / height) - 0.5) * 60;
-    const rotateY = ((x / width) - 0.5) * -60;
+  //   const rotateX = ((y / height) - 0.5) * 60;
+  //   const rotateY = ((x / width) - 0.5) * -60;
 
-    setTransform(`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`);
-  };
+  //   setTransform(`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`);
+  // };
 
-  const handleMouseLeave = () => {
-    setTransform("rotateX(0deg) rotateY(0deg)");
-  };
+  // const handleMouseLeave = () => {
+  //   setTransform("rotateX(0deg) rotateY(0deg)");
+  // };  -- commented out for now
   // const handleLink = (type) => {
   //   if (type === 'github') {
   //     window.open(constants.social_links.github)
@@ -89,7 +91,7 @@ const Home = () => {
   //   } else if (type === 'instagram') {
   //     window.open(constants.social_links.instagram)
   //   }
-  // }
+  // } -- commented out for now
 
   return (
     <>
@@ -146,7 +148,7 @@ const Home = () => {
             </RightCol>
           </Row>
         </TopContent>
-        <Divider />
+        {/* <Divider /> */}
         <BottomContent id='bottom-section'>
           <Title>Let me Introduce myself</Title>
           <Row className='bottom-sec-row'>
@@ -255,7 +257,7 @@ const Home = () => {
 
         </BottomContent>
         {/* <ViewCounter slug="home-page" /> */}
-        <LastUpdate>Last Updated - {lastUpdate}</LastUpdate>
+        {/* <LastUpdate>Last Updated - {lastUpdate}</LastUpdate> */}
         <Footer />
       </Container>
     </>
@@ -277,10 +279,7 @@ const pulse = keyframes`
 
 const Container = styled.div`
   color: ${styles.colors.white};
-  background-image: url(${constants.images.bg_image});  
-  background-size: cover;  
-  background-position: center;  
-  background-repeat: repeat;
+  background-size: contain;  
 
   @font-face {
     font-family: 'Now-font-reg';
@@ -304,15 +303,42 @@ const Container = styled.div`
 const TopContent = styled.section`
   width: 100%;
   padding-top: 12%;
-
+  min-height:85vh;
+  background-image: url(${constants.images.bg_image});  
+  background-size: contain;
   @media (max-width: 1300px) {
     .top-sec-row {
       flex-direction:column;
     }
   }
+  @media screen and (max-width: 1200px) {
+    background-size: cover;
+  }
 
 `
 const BottomContent = styled.section`
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url(${constants.images.home_bg_2});
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(6px);
+
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
   .bottom-sec-row {
     gap:2rem;
   }
@@ -502,6 +528,9 @@ const Title = styled.h2`
   color: #fff;
   margin-bottom: 2rem;
   text-align: center;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 4px 20px rgba(0, 0, 0, 0.6);
 `;
 
 const AvatarContainer = styled.div`
