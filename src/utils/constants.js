@@ -13,6 +13,7 @@ export const constants = {
     images: {
         bg_image: backgroundImage,
         coming_soon: comingSoonGif,
+        home_bg_2:require("../assets/images/home_bg_2.jpg")
     },
     projects: [
         {
