@@ -3,13 +3,13 @@ import { getAnalytics } from "firebase/analytics";
 import { collection, addDoc, getFirestore, doc, updateDoc, increment, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAHOKxJ-H53HXJbt-BnYcq7CS55RqPmUZU",
-    authDomain: "portfolio-509f1.firebaseapp.com",
-    projectId: "portfolio-509f1",
-    storageBucket: "portfolio-509f1.firebasestorage.app",
-    messagingSenderId: "636577054427",
-    appId: "1:636577054427:web:4981a11acc3fb24eb916fe",
-    measurementId: "G-B2KJGBMCFN"
+    apiKey: process.env.REACT_APP_FIREBASE_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID,
+    measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
