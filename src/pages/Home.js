@@ -7,13 +7,14 @@ import devAnimation from '../assets/json/dev_animation.json'
 import hiDevAnimation from '../assets/json/hello_dev.json'
 import showerAnimation from '../assets/json/shower.json'
 import { ReactComponent as ProfileIcon } from '../assets/icons/programmer.svg'
-import { FaCode, FaEnvelope, FaGoogle, FaMapMarkerAlt, FaPhone, FaTwitter } from "react-icons/fa";
+import { FaCode, FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { constants } from '../utils/constants';
 import { Footer } from '../components/Footer';
 import { handleLink } from '../utils/helpers';
+// eslint-disable-next-line no-unused-vars -- used by the commented-out <ViewCounter /> below
 import { ViewCounter } from '../components/ViewCounter';
 import { MyServices } from '../components/MyServices'
 import { fetchLastCommit } from '../api/commonApis';
@@ -49,8 +50,10 @@ const Home = () => {
     }
   }
 
+  // eslint-disable-next-line no-unused-vars -- for the commented-out 3D profile icon
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  // eslint-disable-next-line no-unused-vars -- for the commented-out "Last Updated" line
   const [lastUpdate, setLastUpdate] = useState(null);
 
 
@@ -416,6 +419,7 @@ const ForestArea = styled.div`
   }
 `
 
+// eslint-disable-next-line no-unused-vars -- used by the commented-out "Last Updated" line
 const LastUpdate = styled.p`
   text-align: center;
 `
@@ -758,12 +762,14 @@ const RightCol = styled.div`
   flex:1;
 `
 
+// eslint-disable-next-line no-unused-vars -- used by the commented-out 3D profile icon
 const IconWrapper = styled.div`
   display: inline-block;
   perspective: 300px;
   padding: 1rem;
 `;
 
+// eslint-disable-next-line no-unused-vars -- used by the commented-out 3D profile icon
 const StyledProfileIcon = styled(ProfileIcon)`
   width: 200px; 
   height: 200px;
@@ -903,13 +909,6 @@ const Icon = styled.div`
   color: ${styles.colors.theme_default};
 `;
 
-const SocialIcons = styled.div`
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  font-size: 18px;
-`;
 
 
 

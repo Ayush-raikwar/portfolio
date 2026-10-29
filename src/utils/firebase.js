@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+// eslint-disable-next-line no-unused-vars -- updateDoc / increment are for the commented-out counter update
 import { collection, addDoc, getFirestore, doc, updateDoc, increment, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -13,6 +14,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+// eslint-disable-next-line no-unused-vars -- initialising analytics is the side effect we want
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
@@ -36,6 +38,7 @@ export async function incrementCounter(
     amount = 1
 ) {
     // 1. Get a reference to the specific document
+    // eslint-disable-next-line no-unused-vars -- used by the commented-out updateDoc call below
     const docRef = doc(db, collectionPath, docId);
 
     //   try {
@@ -54,6 +57,7 @@ export async function incrementCounter(
     // const querySnapshot = await getDocs(collection(db, "portfolio-view-count"));
     // const newData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     const COUNTER_COLLECTION_NAME = "portfolio-view-count";
+    // eslint-disable-next-line no-unused-vars
     const COUNTER_DOCUMENT_ID = "count";
     
     const querySnapshot = await getDocs(collection(db, COUNTER_COLLECTION_NAME));
