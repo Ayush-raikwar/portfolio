@@ -41,6 +41,27 @@ const FooterContainer = styled.footer`
     text-align: center;
   }
 
+  @media (max-width: 768px) {
+    gap: 0.6rem;
+    padding: 2rem 1.25rem 1.5rem;
+    background:
+      radial-gradient(30rem 12rem at 50% 0%, rgba(254, 226, 99, 0.06), rgba(254, 226, 99, 0) 70%),
+      rgba(7, 11, 20, 0.92);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    .icon {
+      padding: 10px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  /* leave room for the floating mobile tab bar */
+  @media (orientation: portrait) {
+    padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+  }
+
 `;
 const Description = styled.p`
     font-size:1rem;
@@ -52,6 +73,12 @@ const Row = styled.div`
 const RowCenterApart = styled.div`
     display: flex;
     gap:2rem;
+
+    @media (max-width: 768px) {
+        gap: 0.9rem;
+        order: -1;
+        margin-bottom: 0.5rem;
+    }
 
     .icon {
         transition: box-shadow 0.3s ease, transform 0.3s ease;
