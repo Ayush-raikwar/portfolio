@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* phones: dark canvas so overscroll / rubber-banding never flashes white */
+@media (max-width: 768px) {
+  html,
+  body {
+    background-color: #05070c;
+  }
+}
